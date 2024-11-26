@@ -1,26 +1,46 @@
 {
-  "name": "is-headless-check",
+  "name": "is-headless-browser",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Package that detects use of headless browsers using lightweight heuristics",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "node test.js"
+    "build": "rollup -c",
+    "test": "node test.mjs",
+    "debug": "DEBUG=1 node test.mjs",
+    "prepublishOnly": "npm run build && npm run test"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/wentwrong/is-headless-check.git"
+    "url": "git+https://github.com/wentwrong/is-headless-browser.git"
   },
+  "keywords": [
+    "headless",
+    "browser",
+    "webdriver",
+    "puppeteer",
+    "phantomjs",
+    "detect",
+    "bot"
+  ],
+  "files": [
+    "dist/**"
+  ],
+  "types": "index.d.ts",
   "author": "wentwrong",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wentwrong/is-headless-check/issues"
+    "url": "https://github.com/wentwrong/is-headless-browser/issues"
   },
-  "homepage": "https://github.com/wentwrong/is-headless-check#readme",
+  "homepage": "https://github.com/wentwrong/is-headless-browser#readme",
   "devDependencies": {
-    "playwright": "^1.49.0",
+    "@rollup/plugin-buble": "^1.0.3",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "puppeteer": "^23.9.0",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "rollup": "^4.27.4"
   }
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+  <link rel="shortcut icon" href="#" />
+  <script src="./dist/index.min.js"></script>
+</head>
+<body>
+  <noscript>Your browser does not support JavaScript!</noscript>
+  <div id="verdict"></div>
+  <script>
+    window.onload = function () {
+      var verdict = document.getElementById("verdict");
+
+      if (window["is-headless-browser"].isHeadlessBrowser()) {
+        verdict.textContent =
+          "You are using the headless version of the browser, which operates without a graphical interface.";
+      } else {
+        verdict.textContent =
+          "You are using the standard version of the browser (headful).";
+      }
+    };
+  </script>
+</body>
